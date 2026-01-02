@@ -102,7 +102,7 @@
             </li>
         </ul>
         <div class="btn-box w-100 mt-4 mb-1">
-            <a href="<?php echo base_url('auth/logout'); ?>" class="btn btn-secondary btn-block">
+            <a href="<?php echo base_url('home'); ?>" class="btn btn-secondary btn-block">
                 <i class="fe fe-log-out mr-2"></i> Logout
             </a>
         </div>

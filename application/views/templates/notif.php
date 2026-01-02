@@ -1,31 +1,9 @@
-<body class="vertical  dark  ">
+<body class="vertical dark" id="main-body">
     <div class="wrapper">
       <nav class="topnav navbar navbar-light">
   <button type="button" class="navbar-toggler text-muted mt-2 p-0 mr-3 collapseSidebar">
     <i class="fe fe-menu navbar-toggler-icon"></i>
   </button>
-
-  <a class="navbar-brand mr-2" href="#">
-    <img src="<?= base_url('public/img/Umus.png') ?>" height="30">
-  </a>
-
-  <ul class="nav mr-auto d-none d-lg-flex">
-    <li class="nav-item">
-      <a class="nav-link text-muted px-2" href="<?= base_url('Admin'); ?>">Beranda</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-muted px-2" href="#">Berita <span class="badge badge-primary badge-pill ml-1" style="font-size: 10px;">New</span></a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-muted px-2" href="#">Akademik</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-muted px-2" href="#">Download</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link text-muted px-2" href="#">Apps</a>
-    </li>
-  </ul>
 
   <form class="form-inline mr-auto searchform text-muted">
     <input class="form-control mr-sm-2 bg-transparent border-0 pl-4 text-muted" type="search" placeholder="Type something..." aria-label="Search">
@@ -57,7 +35,7 @@
       <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
         <a class="dropdown-item" href="#">Profile</a>
         <a class="dropdown-item" href="#">Settings</a>
-        <a class="dropdown-item text-danger" href="<?= base_url('login') ?>">Logout</a>
+        <a class="dropdown-item text-danger" href="<?= base_url('home') ?>">Logout</a>
       </div>
     </li>
   </ul>
@@ -436,5 +414,58 @@
       gtag('js', new Date());
       gtag('config', 'UA-56159088-1');
     </script>
+    <script>
+$(document).ready(function() {
+    const body = $('#main-body');
+    const modeSwitcher = $('#modeSwitcher');
+    const themeIcon = modeSwitcher.find('i');
+    
+    // Ambil elemen link CSS berdasarkan ID yang ada di header.php
+    const lightTheme = document.getElementById('lightTheme');
+    const darkTheme = document.getElementById('darkTheme');
+
+    function applyMode(mode) {
+        if (mode === 'light') {
+            // 1. Matikan CSS Gelap, Aktifkan Terang
+            if (darkTheme) darkTheme.disabled = true;
+            if (lightTheme) lightTheme.disabled = false;
+
+            body.removeClass('dark').addClass('light');
+            themeIcon.removeClass('fe-sun').addClass('fe-moon');
+            
+            // 2. Simpan agar PHP di header langsung tahu tanpa logout
+            localStorage.setItem('mode', 'light');
+            document.cookie = "mode=light; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+        } else {
+            // 1. Matikan CSS Terang, Aktifkan Gelap
+            if (lightTheme) lightTheme.disabled = true;
+            if (darkTheme) darkTheme.disabled = false;
+
+            body.removeClass('light').addClass('dark');
+            themeIcon.removeClass('fe-moon').addClass('fe-sun');
+            
+            // 2. Simpan agar PHP di header langsung tahu tanpa logout
+            localStorage.setItem('mode', 'dark');
+            document.cookie = "mode=dark; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+        }
+    }
+
+    // Jalankan sinkronisasi awal saat halaman terbuka
+    const savedMode = localStorage.getItem('mode') || 'dark';
+    applyMode(savedMode);
+
+    modeSwitcher.on('click', function(e) {
+        e.preventDefault();
+        const mode = body.hasClass('dark') ? 'light' : 'dark';
+        applyMode(mode);
+    });
+
+    // Logika Sidebar tetap
+    $('.collapseSidebar').on('click', function(e) {
+        e.preventDefault();
+        $('.wrapper').toggleClass('collapsed');
+    });
+});
+</script>
   </body>
 </html>

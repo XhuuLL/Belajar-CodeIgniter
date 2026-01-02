@@ -9,7 +9,6 @@ class Home extends CI_Controller {
     }
 
     public function index() {
-        $this->load->view('templates/notif');
         $this->load->view('templates/header'); 
         $this->load->view('welcome');
     }
