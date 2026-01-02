@@ -20,6 +20,10 @@ class Admin extends CI_Controller {
 	 */
 	public function index()
 	{
+		if($this->session->userdata('status') != "login"){
+			redirect(base_url("auth"));
+		}
+
 		$this->load->view('templates/header');
 		$this->load->view('templates/notif');
 		$this->load->view('templates/sidebar');

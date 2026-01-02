@@ -22,6 +22,6 @@
     <!-- Date Range Picker CSS -->
     <link rel="stylesheet" href="<?php echo base_url () ?>assets/css/daterangepicker.css">
     <!-- App CSS -->
-    <link rel="stylesheet" href="<?php echo base_url () ?>assets/css/app-light.css" id="lightTheme" disabled>
+    <link rel="stylesheet" href="<?php echo base_url () ?>assets/css/app-light.css" id="lightTheme" enabled>
     <link rel="stylesheet" href="<?php echo base_url () ?>assets/css/app-dark.css" id="darkTheme">
   </head>
