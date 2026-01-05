@@ -31,6 +31,14 @@ class MahasiswaModel extends CI_Model {
         $query = $this->db->get_where('tb_mhs', array('nim' => $nim))->row();
         return $query;
     }
+    public function get_mhs_limit($limit) {
+    $this->db->order_by('id_mhs', 'DESC');
+    $this->db->limit($limit);
+    return $this->db->get('tb_mhs')->result();
+}
+public function get_prodi() {
+    return $this->db->get('tb_prodi')->result();
+}
 }
 
 ?>

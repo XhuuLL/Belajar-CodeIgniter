@@ -53,19 +53,19 @@
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item dropdown">
-                <a href="#ui-elements" class="nav-link">
+                <a href="<?php echo site_url('ProgramStudiC') ?>" class="nav-link">
                     <i class="fe fe-book"></i>
                     <span class="ml-3 item-text">Program Studi</span>
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#ui-elements" class="nav-link">
+                <a href="<?php echo site_url('MatkulC') ?>" class="nav-link">
                     <i class="fe fe-book-open"></i>
                     <span class="ml-3 item-text">Mata Kuliah</span>
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#ui-elements" class="nav-link">
+                <a href="<?php echo site_url('JadwalC') ?>" class="nav-link">
                     <i class="fe fe-calendar"></i>
                     <span class="ml-3 item-text">Jadwal</span>
                 </a>
@@ -77,13 +77,13 @@
         </p>
         <ul class="navbar-nav flex-fill w-100 mb-2">
             <li class="nav-item dropdown">
-                <a href="#ui-elements" class="nav-link">
+                <a href="<?php echo site_url('BeritaC') ?>" class="nav-link">
                     <i class="fe fe-folder"></i>
                     <span class="ml-3 item-text">Utama</span>
                 </a>
             </li>
             <li class="nav-item dropdown">
-                <a href="#ui-elements" class="nav-link">
+                <a href="<?php echo site_url('BeritaC/draft') ?>" class="nav-link">
                     <i class="fe fe-folder-minus"></i>
                     <span class="ml-3 item-text">Draft</span>
                 </a>
